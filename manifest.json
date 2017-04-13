@@ -1,0 +1,28 @@
+{
+    "name" : "Szenmu Elaborate Csgo Maths System",
+    "description" : "CSGO Gambling made difficult.",
+    "version" : "0.0.1",
+
+    "manifest_version" : 2,
+
+    /*"background" : {
+        "scripts": ["jquery-3.1.1.min.js","background.js"]
+    },*/
+
+    
+
+    "browser_action" : {
+        "default_icon" : "icon.png",
+        "default_popup" : "popup.html"
+    },
+
+    "content_scripts": [
+        {
+            "matches": ["http://*/*","https://*/*"],
+            "js":   ["jquery-3.1.1.min.js","content.js"]
+        }
+    ],
+
+    "permissions":["tabs","activeTab","storage","webRequest","https://api.opskins.com/IPricing/GetAllLowestListPrices/v1/?appid=730"]
+
+}

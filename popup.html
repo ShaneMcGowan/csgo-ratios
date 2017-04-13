@@ -1,0 +1,227 @@
+<!DOCTYPE>
+<html>
+<head>
+    <title>Hi friend</title>
+    <!-- bootstrap -->
+    <link rel="stylesheet" type="text/css" href="bootstrap-select.min.css">
+    <link href="bootstrap.min.css" rel="stylesheet">
+    <link href="bootstrap-theme.min.css" rel="stylesheet">
+</head>
+<body style="width:780px;">
+    
+
+<!-- Begin Tabs -->
+<div class="row">
+    <div class="col-xs-12">
+        <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="#home" class="glyphicon glyphicon-home" aria-hidden="true"></a></li>
+            <li><a data-toggle="tab" href="#tabSettings" class="glyphicon glyphicon-cog" aria-hidden="true"></a></li>
+            <li><a data-toggle="tab" href="#tabCsgoPolygon"><img src="images/logoCsgoPolygon.png" class="text-center" style="width: 110px; height:20px; "></a></li>
+            <li><a data-toggle="tab" href="#tabOpSkins"><img src="images/logoOpSkins.png" class="text-center" style="width: 110px; height:20px; "></a></li>
+            <li><a data-toggle="tab" href="#tabBitSkins"><img src="images/logoBitSkins.png" class="text-center" style="width: 110px; height:20px; "></a></li>
+            <li><a data-toggle="tab" href="#tabCompare">Compare</a></li>    
+        </ul>
+
+        <div class="tab-content">
+            <!-- HOME -->
+            <div id="home" class="tab-pane fade in active">
+                <div class="col-xs-12">
+                    <div class="row">
+                        </br>
+                        <div class="col-xs-12">
+                            <div class="col-xs-4">
+                                <button class="btn btn-primary btn-block" type="submit" align="center" id="btnUpdatePrices">Update CsgoPolygon Prices</button>
+                            </div>
+                            <!--
+                            <div class="col-xs-4">
+                                <button class="btn btn-danger btn-block" type="submit" align="center" id="btnClearStorage">Clear saved prices</button>
+                            </div>
+                            -->
+                            <div class="col-xs-4">
+                                <button class="btn btn-primary btn-block" type="submit" align="center" id="btnUpdateOpSkins">Update OpSkins Prices</button>
+                            </div>
+                            <div class="col-xs-4">
+                                <button class="btn btn-primary btn-block" type="submit" align="center" id="btnCompare">Compare</button>
+                            </div>
+                        </div>
+                        </br>
+                        </br>
+                        <div class="col-xs-12">
+                            <div class="col-xs-12">
+                                <button class="btn btn-info btn-block" type="submit" align="center" id="btnOpenSites">Open Sites</button>
+                            </div>
+                        </div>
+                        </br>
+                        </br>
+                        <div class="col-xs-12">
+                            <div class="col-xs-6">
+                                <input type="text" class="form-control" id="tbxBitSkinsCode" placeholder="BitSkins OAuth Code"> 
+                            </div>
+                            <div class="col-xs-6">
+                                <button class="btn btn-primary btn-block" type="submit" align="center" id="btnUpdateBitSkins">Update BitSkins Prices</button>
+                            </div>
+                        </div>
+                        </br>
+                        </br>
+                        <div class="col-xs-12">
+                            <div class="col-xs-12 text-center" id="homeAlertBoxContainer">
+                                
+                            </div>
+                        </div>
+                    <div>
+                </div>
+            </div>
+            </div>
+            </div>
+            <!-- Csgo Polygon -->
+            <div id="tabCsgoPolygon" class="tab-pane fade">
+                <h5 id="tbxCsgoPolygonLastUpdate" class="col-xs-12 text-center alert alert-info"></h5>
+                <div class="col-xs-12 pre-scrollable">
+                    <table class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Coins</th>
+                                <th>Amount</th> 
+                            </tr>
+                        </thead>
+                        <tbody id="tblCsgoPolygon">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- OpSkins -->
+            <div id="tabOpSkins" class="tab-pane fade">
+                <h5 id="tbxOpSkinsLastUpdate" class="col-xs-12 text-center alert alert-info"></h5>
+                <div class="col-xs-12 pre-scrollable">
+                    <table class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Price</th>
+                                <th>Amount</th> 
+                            </tr>
+                        </thead>
+                        <tbody id="tblOpSkins">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- BitSkins -->
+            <div id="tabBitSkins" class="tab-pane fade">
+                <h5 id="tbxBitSkinsLastUpdate" class="col-xs-12 text-center alert alert-info"></h5>
+                <div class="col-xs-12 pre-scrollable">
+                    <table class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Price</th>
+                                <th>Amount</th> 
+                            </tr>
+                        </thead>
+                        <tbody id="tblBitSkins">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- Compare -->
+            <div id="tabCompare" class="tab-pane fade">
+                <div class="col-xs-12"> 
+                <h5 id="tbxCompareInfo" class="col-xs-12 text-center alert alert-info" style="padding-left: 0px; padding-right: 0px;"> 
+                    <div class="row">
+                        <div class="col-xs-1">
+                            <div class="col-xs-12">
+                                <button id="btnCompareRatio" class="btn btn-primary btn-block" style="width: 52px; padding-right: 0px; padding-left: 0px;">Apply</button>
+                            </div>
+                        </div>
+                        <div class="col-xs-11">
+                            <div class="col-xs-4">
+                                <select id="ddlCompareSort" class="selectpicker">
+                                    <option value="Ascending">Ascending</option>
+                                    <option value="Descending" selected>Descending</option>
+                                </select>
+                            </div>
+                            <div class="col-xs-4">
+                                <select id="ddlCompareRatio" class="selectpicker">
+                                    <option value="Above">Above</option>
+                                    <option value="Below" selected>Below</option>
+                                </select>
+                            </div>
+                            <div class="col-xs-4">
+                                <input id="tbxCompareRatio" class="form-control" type="number" placeholder="12.50" value="400.0"/>
+                            </div>
+                        </div>
+                    </div>
+                    </br>
+                    <div class="row">
+                         <div class="col-xs-12">
+                            <div class="col-xs-4">
+                                <button id="btnCompareWithdraw" class="btn btn-info btn-block">Withdraw</button>
+                            </div>
+                            <div class="col-xs-4">
+                                <button id="btnCompareDeposit" class="btn btn-success btn-block">Deposit</button>
+                            </div> 
+                            <div class="col-xs-4">
+                                <!--<button id="btnCompareReset" class="btn btn-danger btn-block">Reset</button>-->
+                                <input id="tbxCompareCoins" class="form-control" type="number" placeholder="0 is default" value="0"/>
+                            </div>
+                        </div> 
+                    </div>                
+                </h5>
+                </div>
+                <div class="col-xs-12 pre-scrollable">
+                    <table class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Coins</th>
+                                <th>Price</th>
+                                <th>Ratio</th> 
+                            </tr>
+                        </thead>
+                        <tbody id="tblComparison">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- Settings -->
+            <div id="tabSettings" class="tab-pane fade">
+                <div class="col-xs-12">
+                    </br>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <label for="tbxSettingsBitSkinsKey">BitSkins API Key : </label>
+                            <a href="https://bitskins.com/settings">Click here to get key</a>
+                            <input class="form-control" id="tbxSettingsBitSkinsKey" type="text"/>
+                        </div>
+                    </div>
+                    </br>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <label for="tbxSettingsOpSkinsKey">OpSkins API Key : </label>
+                            <a href="https://opskins.com/?loc=store_account">Click here to get key (Advanced Options)</a>
+                            <input class="form-control" id="tbxSettingsOpSkinsKey" type="text"/>
+                        </div>
+                    </div>
+                    </br>
+                    <div class="row">
+                        <div class="col-xs-offset-4 col-xs-4">
+                            <button class="btn btn-primary btn-block">Update</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Tabs -->
+</br>
+</body>
+
+</html>
+
+<script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src="bootstrap.min.js"></script>
+<script type="text/javascript" src="bootstrap-select.min.js"></script>
+<script type="text/javascript" src="popup.js"></script>
+
