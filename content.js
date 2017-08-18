@@ -3,7 +3,7 @@ chrome.runtime.onMessage.addListener(
         var site = location.hostname;
         //bets.gg
         if(site == 'bets.gg'){
-            alert('bets.gg')
+            //alert('bets.gg')
             $('.store-inner > tm ').each(function(){
                 //declare item
                 var item = {name : '', price : ''};
@@ -54,7 +54,7 @@ chrome.runtime.onMessage.addListener(
         }
         //CsgoDouble && CsgoPolygon
         else{
-            alert('other');
+            //alert('other');
             var itemsList = new Array([]);
             $('.reals > div').each(function(){
                 if($.inArray($(this).attr("data-name"), $.map(itemsList, function(v) { return v.name; })) === -1)
